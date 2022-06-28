@@ -14,7 +14,7 @@ function index(req, res) {
           delete response[hero.name];
         }
       })
-      console.log(response);
+      // console.log(response);
       res.render("heroes/index", {
         heroes,
         results: response,
