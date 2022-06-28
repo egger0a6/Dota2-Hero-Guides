@@ -1,8 +1,32 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/heroes/index.css">
 <%- include('../partials/nav') %>
 
 <main>
-  <h1>All Heroes</h1>
+  <h1 class="my-4">All Heroes</h1>
+  <section class="mt-5">
+    <p>
+      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-heroes" aria-expanded="false" aria-controls="collapse-heroes">
+        Button with data-bs-target
+      </button>
+    </p>
+    <div class="collapse" id="collapse-heroes">
+      <div class="row row-cols-3 row-cols-lg-6 g-3">
+        <% for (const hero in results) { %>
+          <div class="col">
+            <div class="card h-100 text-center">
+              <img src="<%= results[hero].images.full %>" alt="dota2 hero portrait">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= hero %>
+                </h5>
+              </div>
+            </div>
+          </div>
+        <% }; %> 
+      </div>
+    </div>
+  </section>
 </main>
 
 <%- include('../partials/footer') %>
