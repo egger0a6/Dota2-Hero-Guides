@@ -1,8 +1,32 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/guides/new.css"/>
 <%- include('../partials/nav') %>
 
 <main>
-  <h1>Create New Guide</h1>
+  <h1 class="my-4">Create New Guide</h1>
+
+  <form action="">
+    <div class="container-fluid overflow-auto my-4">
+      <div class="row justify-content-center">
+        <% heroes.forEach((hero) => { %>
+          <div class="col-lg-1 col-sm-4 g-4">
+            <div class="card h-100 text-center">
+              <img src="<%= hero.imageUrl %>" alt="dota2 hero portrait">
+              <div class="card-body">
+                <h2 class="card-title">
+                  <%= hero.name.split("_").join(" ") %> 
+                </h2>
+                <input type="radio" class="btn-check" name="hero" id="<%= hero.name %>" autocomplete="off" value="<%= hero._id %>">
+                <label class="btn btn-outline-primary" for="<%= hero.name %>">Select</label>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+    <button type="submit">Submit Guide</button>
+  </form>
+
 </main>
 
 <%- include('../partials/footer') %>

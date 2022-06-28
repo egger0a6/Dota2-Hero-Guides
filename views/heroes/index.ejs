@@ -13,15 +13,19 @@
             <img src="<%= hero.imageUrl %>" alt="dota2 hero portrait">
             <div class="card-body">
               <h2 class="card-title">
-                <%= hero.name %> 
+                <%= hero.name.split("_").join(" ") %> 
               </h2>
-              <a href="#" class="btn btn-primary">Details</a>
+              <a href="" class="btn btn-primary">Details</a>
             </div>
           </div>
         </div>
       <% }) %>
     </div>
   </div>
+
+  <% if(!user) {%>
+    <h2 class="notification my-3">Login to add a new Hero</h2>
+  <% } %>
 
   <% if (user) { %>
     <p>
@@ -30,14 +34,15 @@
       </button>
     </p>
     <div class="collapse" id="collapse-heroes">
+      <div class="container">
       <div class="row row-cols-3 row-cols-lg-6 g-3">
-        <% for (const hero in results) { %>
+        <% Object.keys(results).sort().forEach((hero) => { %>
           <div class="col">
             <div class="card h-100 text-center">
               <img src="<%= results[hero].images.full %>" alt="dota2 hero portrait">
               <div class="card-body">
                 <h3 class="card-title">
-                  <%= hero %>
+                  <%= results[hero].localized_name.split("_").join(" ") %>
                 </h3>
                 <form action="/heroes" method="post">
                   <input 
@@ -57,7 +62,8 @@
               </div>
             </div>
           </div>
-        <% }; %> 
+        <% }); %> 
+      </div>
       </div>
     </div>
   <% } %>
