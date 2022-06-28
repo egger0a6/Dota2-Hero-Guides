@@ -1,4 +1,5 @@
 import DotaWebApi from "dota-web-api";
+import { Hero } from "../models/hero.js";
 
 
 const api = new DotaWebApi(process.env.STEAM_WEB_API_KEY);
