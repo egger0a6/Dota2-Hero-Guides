@@ -9,7 +9,12 @@ function index(req, res) {
   .then((heroes) => {
     api.getHeroes()
     .then((response) => {
-      console.log(response)
+      heroes.forEach((hero) => {
+        if (hero.name in response) {
+          delete response[hero.name];
+        }
+      })
+      console.log(response);
       res.render("heroes/index", {
         heroes,
         results: response,
