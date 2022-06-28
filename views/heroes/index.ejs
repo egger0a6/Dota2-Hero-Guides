@@ -4,12 +4,25 @@
 
 <main>
   <h1 class="my-4">All Heroes</h1>
-  <section>
-    
-  </section>
+  
+  <div class="row row-cols-3 row-cols-lg-6 g-4">
+    <% heroes.forEach((hero) => { %>
+      <div class="col">
+        <div class="card h-100 text-center">
+          <img src="<%= hero.imageUrl %>" alt="dota2 hero portrait">
+          <div class="card-body">
+            <h2 class="card-title">
+              <%= hero.name %> 
+            </h2>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+
   <p>
     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-heroes" aria-expanded="false" aria-controls="collapse-heroes">
-      Button with data-bs-target
+      Show Available Heroes
     </button>
   </p>
   <div class="collapse" id="collapse-heroes">
@@ -19,9 +32,24 @@
           <div class="card h-100 text-center">
             <img src="<%= results[hero].images.full %>" alt="dota2 hero portrait">
             <div class="card-body">
-              <h5 class="card-title">
+              <h3 class="card-title">
                 <%= hero %>
-              </h5>
+              </h3>
+              <form action="/heroes" method="post">
+                <input 
+                  hidden 
+                  type="text" 
+                  name="name" 
+                  value="<%= results[hero].localized_name %>"
+                >
+                <input 
+                  hidden 
+                  type="text" 
+                  name="imageUrl" 
+                  value="<%= results[hero].images.vert %>"
+                >
+                <button class="btn btn-primary" type="submit">Add Hero</button>
+              </form>
             </div>
           </div>
         </div>

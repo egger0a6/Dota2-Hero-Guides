@@ -6,6 +6,8 @@ const router = Router();
 
 router.get("/", heroesCtrl.index);
 
+router.post("/", heroesCtrl.create);
+
 export {
   router
 }
