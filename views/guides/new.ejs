@@ -27,11 +27,16 @@
 
     <div class="container py-4">
       <div class="row">
-        <div class="col text-center overflow-auto">
+        <div class="col text-center overflow-auto item-container">
           <h2>Starting Items</h2>
           <% results.forEach((item) => { %>
-            <div class="card text-center">
+            <div class="card col-4 text-center">
               <img src="<%= item[1].images.lg %> " alt="dota2 item thumbnail">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= item[1].localized_name.split("_").join(" ") %>
+                </h5>
+              </div>
             </div>
           <% }) %>
         </div>
