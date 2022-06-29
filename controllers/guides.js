@@ -35,7 +35,8 @@ function newGuide(req, res) {
 }
 
 function create(req, res) {
-  console.log("create Guide");
+  console.log(req.body);
+  res.redirect("/heroes");
 }
 
 export {

@@ -6,8 +6,8 @@
   <h1 class="my-4">Create New Guide</h1>
 
   <form action="/guides" method="POST">
-    <div class="container-fluid overflow-auto my-4">
-      <div class="row justify-content-center">
+    <div class="container-fluid my-4">
+      <div class="row overflow-auto hero-container justify-content-center">
         <% heroes.forEach((hero) => { %>
           <div class="col-lg-1 col-sm-4 g-4">
             <div class="card h-100 text-center">
@@ -25,148 +25,50 @@
       </div>
     </div>
 
-    <div class="container-fluid py-4 px-5">
-      <div class="row">
-        <div class="col text-center">
-          <h2>Starting Items</h2>
-        </div>
-        <div class="col text-center">
-          <h2>Core Items</h2>
-        </div>
-        <div class="col text-center">
-          <h2>Situational Items</h2>
-        </div>
+    <div class="container py-4 px-5">
+      <div class="row text-center">
+        <h2>Choose Items</h2>
       </div>
-      <div class="row">
-        <div class="col overflow-auto item-container">
-          <div class="row">
-            <% results.forEach((item) => { %>
-              <div class="col-lg-2 col-sm-4">
-                <div class="card h-100 text-center">
-                  <img src="<%= item[1].images.lg %>" alt="dota2 item thumbnail">
-                  <div class="card-body">
-                    <div>
-                      <input
-                        type="checkbox" 
-                        name="include"
-                        >
-                        <input
-                          hidden
-                          type="text" 
-                          name="name"
-                          value="<%= item[1].localized_name %>"
-                        >
-                        <input
-                          hidden
-                          type="text" 
-                          name="imageUrl"
-                          value="<%= item[1].images.lg %>"
-                        >
-                        <input
-                          hidden
-                          type="number" 
-                          name="priority"
-                          value="0"
-                        >
-                        <input
-                          hidden
-                          type="number" 
-                          name="cost"
-                          value="<%= item[1].cost %>"
-                        >
-                    </div>
-                  </div>
+      <div class="row overflow-auto item-container justify-content-center">
+        <% results.forEach((item) => { %>
+          <div class="col-lg-1 col-sm-3 g-3">
+            <div class="card h-100 text-center">
+              <img src="<%= item[1].images.lg %>" alt="dota2 item thumbnail">
+              <div class="card-body">
+                <div>
+                  <input
+                    type="checkbox" 
+                    name="include"
+                  >
+                  <input
+                    hidden
+                    type="text" 
+                    name="name"
+                    value="<%= item[1].localized_name %>"
+                  >
+                  <input
+                    hidden
+                    type="text" 
+                    name="imageUrl"
+                    value="<%= item[1].images.lg %>"
+                  >
+                  <input
+                    hidden
+                    type="number" 
+                    name="priority"
+                    value="0"
+                  >
+                  <input
+                    hidden
+                    type="number" 
+                    name="cost"
+                    value="<%= item[1].cost %>"
+                  >
                 </div>
               </div>
-            <% }) %>
+            </div>
           </div>
-        </div>
-        <div class="col overflow-auto item-container">
-          <div class="row">
-            <% results.forEach((item) => { %>
-              <div class="col-lg-2 col-sm-4">
-                <div class="card h-100 text-center">
-                  <img src="<%= item[1].images.lg %> " alt="dota2 item thumbnail">
-                  <div class="card-body">
-                    <div>
-                      <input
-                        type="checkbox" 
-                        name="include"
-                        >
-                        <input
-                          hidden
-                          type="text" 
-                          name="name"
-                          value="<%= item[1].localized_name %>"
-                        >
-                        <input
-                          hidden
-                          type="text" 
-                          name="imageUrl"
-                          value="<%= item[1].images.lg %>"
-                        >
-                        <input
-                          hidden
-                          type="number" 
-                          name="priority"
-                          value="0"
-                        >
-                        <input
-                          hidden
-                          type="number" 
-                          name="cost"
-                          value="<%= item[1].cost %>"
-                        >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <% }) %>
-          </div>
-        </div>
-        <div class="col overflow-auto item-container">
-          <div class="row">
-            <% results.forEach((item) => { %>
-              <div class="col-lg-2 col-sm-4">
-                <div class="card h-100 text-center">
-                  <img src="<%= item[1].images.lg %> " alt="dota2 item thumbnail">
-                  <div class="card-body">
-                    <div>
-                      <input
-                        type="checkbox" 
-                        name="include"
-                        >
-                        <input
-                          hidden
-                          type="text" 
-                          name="name"
-                          value="<%= item[1].localized_name %>"
-                        >
-                        <input
-                          hidden
-                          type="text" 
-                          name="imageUrl"
-                          value="<%= item[1].images.lg %>"
-                        >
-                        <input
-                          hidden
-                          type="number" 
-                          name="priority"
-                          value="0"
-                        >
-                        <input
-                          hidden
-                          type="number" 
-                          name="cost"
-                          value="<%= item[1].cost %>"
-                        >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <% }) %>
-          </div>
-        </div>
+        <% }) %>
       </div>
     </div>
 

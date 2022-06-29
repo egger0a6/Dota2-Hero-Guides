@@ -6,3 +6,7 @@
 .item-container {
   max-height: 50vh;
 }
+
+.hero-container {
+  max-height: 30vh;
+}

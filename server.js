@@ -37,8 +37,8 @@ app.set('view engine', 'ejs')
 app.use(favicon(path.join(__dirname, 'public', "images", "favicons", "dota2-icon.png")))
 app.use(methodOverride('_method'))
 app.use(logger('dev'))
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.json({limit: "25mb"}))
+app.use(express.urlencoded({ extended: true, limit: "25mb" }))
 app.use(
   express.static(
     path.join(__dirname, 'public')
@@ -68,7 +68,7 @@ app.use(passUserToView);
 app.use('/', indexRouter)
 app.use('/auth', authRouter)
 app.use("/heroes", heroesRouter);
-app.use("/guides/", guidesRouter);
+app.use("/guides", guidesRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
