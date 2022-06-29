@@ -6,6 +6,8 @@ const router = Router();
 
 router.get("/new", isLoggedIn, guidesCtrl.new);
 
+router.post("/", guidesCtrl.create);
+
 export {
   router
 }
