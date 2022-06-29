@@ -2,3 +2,7 @@
   width: 85px;
   height: 64px;
 }
+
+.item-container {
+  max-height: 50vh;
+}

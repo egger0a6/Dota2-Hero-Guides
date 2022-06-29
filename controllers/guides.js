@@ -10,7 +10,7 @@ function newGuide(req, res) {
     api.getItems()
     .then((response) => {
       Object.keys(response).forEach((key) => {
-        if (key.includes("recipe") || response[key].cost === 0 || response[key].id > 1000 ||key.includes("single")) {
+        if (key.includes("recipe") || response[key].cost === 0 || response[key].id > 1000 ||key.includes("single") || key.includes("courier")) {
           delete response[key]
         }
       });
