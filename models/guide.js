@@ -13,9 +13,26 @@ const commentSchema = new Schema({
   timestamps: true
 })
 
+const itemSchema = new Schema({
+  name: String,
+  imageUrl: String,
+  priority: {
+    type: Number,
+    min: 0,
+    max: 2,
+  },
+  cost: {
+    type: Number,
+    min: 0
+  }
+},
+{
+  timestamps: true
+})
+
 const guideSchema = new mongoose.Schema({
   name: String,
-  items: [{type: Schema.Types.ObjectId, ref: "Item"}],
+  items: [itemSchema],
   author: {type: Schema.Types.ObjectId, ref: "Profile"},
   hero: {type: Schema.Types.ObjectId, ref: ""},
   comments: [commentSchema]

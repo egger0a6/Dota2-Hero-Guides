@@ -24,6 +24,26 @@
         <% }) %>
       </div>
     </div>
+
+    <div class="container py-4">
+      <div class="row">
+        <div class="col text-center overflow-auto">
+          <h2>Starting Items</h2>
+          <% results.forEach((item) => { %>
+            <div class="card text-center">
+              <img src="<%= item[1].images.lg %> " alt="dota2 item thumbnail">
+            </div>
+          <% }) %>
+        </div>
+        <div class="col text-center">
+          <h2>Core Items</h2>
+        </div>
+        <div class="col text-center">
+          <h2>Situational Items</h2>
+        </div>
+      </div>
+    </div>
+
     <div class="container">
       <div class="row">
         <div class="col text-center">
