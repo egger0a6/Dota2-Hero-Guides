@@ -1,0 +1,24 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/heroes/show.css">
+<%- include('../partials/nav') %>
+
+<main>
+  <h2 class="mt-4">Hero Details</h2>
+
+  <h1 class="mt-2"><%= hero.name %></h1>
+
+  <div class="container mt-3">
+    <div class="row justify-content-center">
+      <div class="card col-lg-4">
+        <img src="<%= hero.imageUrl %>" alt="dota2 hero portrait">
+      </div>
+    </div>
+  </div>
+
+  <div class="container guide-container">
+    
+  </div>
+
+</main>
+
+<%- include('../partials/footer') %>

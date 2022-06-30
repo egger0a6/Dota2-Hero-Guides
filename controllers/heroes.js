@@ -42,7 +42,19 @@ function create(req, res) {
   })
 }
 
+function show(req, res) {
+  Hero.findById(req.params.id)
+  .populate("guides")
+  .then((hero) => {
+    res.render("heroes/show", {
+      hero,
+      title: "Hero Details"
+    })
+  })
+}
+
 export {
   index,
   create,
+  show
 }

@@ -15,7 +15,13 @@
               <h2 class="card-title">
                 <%= hero.name.split("_").join(" ") %> 
               </h2>
-              <a href="" class="btn btn-primary">Details</a>
+              <p><%= hero.guides.length %> Guides Available</p>
+              <a 
+                href="/heroes/<%= hero._id %>"
+                class="btn btn-primary"
+              >
+                Details
+              </a>
             </div>
           </div>
         </div>
