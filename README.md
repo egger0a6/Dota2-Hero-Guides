@@ -45,5 +45,5 @@ This project is a CRUD application that allows users to create simple itemizatio
 * All the hero and item images, and Dota2 logos used in this project belong to their respective owners and I do not claim any right over them.
 
 ## Next Steps
-* Strech goal 1
-* Stretch goal 2
+* Icebox feature 1
+* Icebox feature 2
