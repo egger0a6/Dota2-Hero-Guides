@@ -5,6 +5,7 @@ import * as guidesCtrl from "../controllers/guides.js"
 const router = Router();
 
 router.get("/new", isLoggedIn, guidesCtrl.new);
+router.get("/:id/edit", guidesCtrl.edit);
 
 router.post("/", isLoggedIn, guidesCtrl.create);
 

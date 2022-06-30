@@ -155,15 +155,39 @@ function create(req, res) {
 function deleteGuide(req, res) {
   Guide.findById(req.params.id)
   .then((guide) => {
-    if (guide.author.equals(req.user.profile._id)) {
-      guide.delete()
-      .then(() => {
-        res.redirect(`/heroes/${req.body.heroId}`);
-      })
-    }
-    else {
-      throw new Error ('🚫 Not authorized 🚫');
-    }
+    Hero.findById(req.body.heroId)
+    .then((hero) => {
+      console.log(hero)
+      if (guide.author.equals(req.user.profile._id)) {
+        hero.guides.remove({_id: req.params.id})
+        hero.save()
+        guide.delete()
+        .then(() => {
+          res.redirect(`/heroes/${req.body.heroId}`);
+        })
+      }
+      else {
+        throw new Error ('🚫 Not authorized 🚫');
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      res.redirect("/heroes");
+    })
+  })
+  .catch((err) => {
+    console.log(err);
+    res.redirect("/heroes");
+  })
+}
+
+function edit(req, res) {
+  Guide.findById(req.params.id)
+  .then((guide) => {
+    res.render("guides/edit", {
+      guide,
+      title: "Edit Guide"
+    })
   })
   .catch((err) => {
     console.log(err);
@@ -173,6 +197,7 @@ function deleteGuide(req, res) {
 
 export {
   create,
+  edit,
   newGuide as new,
   deleteGuide as delete
 }
