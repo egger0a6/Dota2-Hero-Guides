@@ -21,13 +21,13 @@ This project is a CRUD application that allows users to create simple itemizatio
 [Project Planning Trello Board](https://trello.com/b/1vfTmTgW/dota2-hero-guides)
 
 ## Usage
-* View all heroes *accompanying screenshot here*
-* Login to your Google account *accompanying screenshot here*
-* Create a guide *accompanying screenshot here*
-* View hero details *accompanying screenshot here*
-* Edit guides *accompanying screenshot here*
-* View all profiles *accompanying screenshot here*
-* View a single profile *accompanying screenshot here*
+* **View all heroes** *accompanying screenshot here*
+* **Login to your Google account** *accompanying screenshot here*
+* **Create a guide** *accompanying screenshot here*
+* **View hero details** *accompanying screenshot here*
+* **Edit guides** *accompanying screenshot here*
+* **View all profiles** *accompanying screenshot here*
+* **View a single profile** *accompanying screenshot here*
 
 ## Technologies
 * ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
