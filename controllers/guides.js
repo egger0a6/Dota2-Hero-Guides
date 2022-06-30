@@ -93,6 +93,12 @@ function create(req, res) {
         newGuide.situationalItems.push(req.body.include);
       }
       newGuide.save()
+      .catch((err) => {
+        console.log(err);
+        res.redirect("/heroes");
+      })
+      hero.guides.push(newGuide._id);
+      hero.save()
       .then((guide) => {
         res.redirect("/heroes");
       })
@@ -125,6 +131,12 @@ function create(req, res) {
         }
       })
       newGuide.save()
+      .catch((err) => {
+        console.log(err);
+        res.redirect("/heroes");
+      })
+      hero.guides.push(newGuide._id);
+      hero.save()
       .then((guide) => {
         res.redirect("/heroes");
       })
