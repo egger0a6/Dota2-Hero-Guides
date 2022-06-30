@@ -15,7 +15,7 @@ function index(req, res) {
         }
       })
       res.render("heroes/index", {
-        heroes,
+        heroes: [],
         results: response,
         title: "All Heroes"
       })
