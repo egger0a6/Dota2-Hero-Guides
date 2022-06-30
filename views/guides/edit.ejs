@@ -1,0 +1,90 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/guides/new.css"/>
+<%- include('../partials/nav') %>
+
+<main>
+  <h1 class="mt-5"><%= title %></h1>
+
+  <form action="/guides" method="POST">
+    <div class="row justify-content-center mt-2">
+      <div class="form-floating ps-2">
+        <input 
+          type="text" 
+          name="name"
+          value="<%= guide.name %>"
+          class="form-control"
+          id="floating-input"
+          placeholder="Guide Name"
+          autocomplete="off"
+          required
+        >
+        <label for="floating-input">Guide Name</label>
+      </div>
+    </div>
+
+    <div class="container mt-2">
+      <div class="row">
+        <div class="col text-center">
+          <button type="submit">
+            <a class="text-decoration-none" href="/heroes/<%= guide.hero._id %>">Cancel</a>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-3">
+      <div class="row justify-content-center">
+        <div class="card col-lg-4 text-center">
+          <h3 class="mt-2"><%= guide.hero.name.split("_").join(" ") %></h3>
+          <img src="<%= guide.hero.imageUrl %>" alt="dota2 hero portrait">
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-4 px-5">
+      <div class="row text-center">
+        <h2>Choose Items</h2>
+      </div>
+      <div class="row overflow-auto item-container justify-content-center">
+        <% items.forEach((item) => { %>
+          <div class="col-lg-1 col-md-2 col-sm-3 g-3">
+            <div class="card h-100 text-center">
+              <img src="<%= item.imageUrl %>" alt="dota2 item thumbnail">
+              <div class="card-body">
+                <div>
+                  <input
+                    type="checkbox" 
+                    name="include"
+                    value="<%= item._id %>"
+                  >
+                  <select name="priority">
+                    <option value="<%= 0 %>">Starting</option>
+                    <option value="<%= 1 %>">Core</option>
+                    <option value="<%= 2 %>">Situational</option>
+                  </select>
+                  <input
+                    hidden
+                    type="text" 
+                    name="itemId"
+                    value="<%= item._id %>"
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <button type="submit">Submit Guide</button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</main>
+
+<%- include('../partials/footer') %>

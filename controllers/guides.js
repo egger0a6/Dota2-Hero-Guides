@@ -183,10 +183,19 @@ function deleteGuide(req, res) {
 
 function edit(req, res) {
   Guide.findById(req.params.id)
+  .populate("hero")
   .then((guide) => {
-    res.render("guides/edit", {
-      guide,
-      title: "Edit Guide"
+    Item.find({}).sort({cost: 1})
+    .then((items) => {
+      res.render("guides/edit", {
+        guide,
+        items,
+        title: "Edit Guide"
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.redirect("/heroes");
     })
   })
   .catch((err) => {

@@ -19,7 +19,7 @@ const guideSchema = new mongoose.Schema({
   coreItems: [{type: Schema.Types.ObjectId, ref: "Item"}],
   situationalItems: [{type: Schema.Types.ObjectId, ref: "Item"}],
   author: {type: Schema.Types.ObjectId, ref: "Profile"},
-  hero: {type: Schema.Types.ObjectId, ref: ""},
+  hero: {type: Schema.Types.ObjectId, ref: "Hero"},
   comments: [commentSchema]
 },
 {
