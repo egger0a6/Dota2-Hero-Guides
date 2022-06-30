@@ -3,20 +3,20 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1 class="my-4">Create New Guide</h1>
+  <h1 class="mt-5">Create New Guide</h1>
 
   <form action="/guides" method="POST">
     <div class="container-fluid my-4">
       <div class="row overflow-auto hero-container justify-content-center">
         <% heroes.forEach((hero) => { %>
-          <div class="col-lg-1 col-sm-4 g-4">
+          <div class="col-lg-1 col-md-3 col-sm-4 g-4">
             <div class="card h-100 text-center">
               <img src="<%= hero.imageUrl %>" alt="dota2 hero portrait">
               <div class="card-body">
                 <h2 class="card-title">
                   <%= hero.name.split("_").join(" ") %> 
                 </h2>
-                <input type="radio" class="btn-check" name="hero" id="<%= hero.name %>" autocomplete="off" value="<%= hero._id %>">
+                <input type="radio" class="btn-check" name="hero" id="<%= hero.name %>" autocomplete="off" value="<%= hero._id %>" required>
                 <label class="btn btn-outline-primary" for="<%= hero.name %>">Select</label>
               </div>
             </div>
@@ -30,39 +30,27 @@
         <h2>Choose Items</h2>
       </div>
       <div class="row overflow-auto item-container justify-content-center">
-        <% results.forEach((item) => { %>
-          <div class="col-lg-1 col-sm-3 g-3">
+        <% items.forEach((item) => { %>
+          <div class="col-lg-1 col-md-2 col-sm-3 g-3">
             <div class="card h-100 text-center">
-              <img src="<%= item[1].images.lg %>" alt="dota2 item thumbnail">
+              <img src="<%= item.imageUrl %>" alt="dota2 item thumbnail">
               <div class="card-body">
                 <div>
                   <input
                     type="checkbox" 
                     name="include"
+                    value="<%= item._id %>"
                   >
+                  <select name="priority">
+                    <option value="<%= 0 %>">Starting</option>
+                    <option value="<%= 1 %>">Core</option>
+                    <option value="<%= 2 %>">Situational</option>
+                  </select>
                   <input
                     hidden
                     type="text" 
-                    name="name"
-                    value="<%= item[1].localized_name %>"
-                  >
-                  <input
-                    hidden
-                    type="text" 
-                    name="imageUrl"
-                    value="<%= item[1].images.lg %>"
-                  >
-                  <input
-                    hidden
-                    type="number" 
-                    name="priority"
-                    value="0"
-                  >
-                  <input
-                    hidden
-                    type="number" 
-                    name="cost"
-                    value="<%= item[1].cost %>"
+                    name="itemId"
+                    value="<%= item._id %>"
                   >
                 </div>
               </div>

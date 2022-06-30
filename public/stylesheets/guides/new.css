@@ -1,6 +1,9 @@
 .item-container .card {
-  width: 85px;
   height: 64px;
+}
+
+.container {
+  max-width: 80vw;
 }
 
 .item-container {
