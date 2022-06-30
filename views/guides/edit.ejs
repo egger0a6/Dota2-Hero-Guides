@@ -5,7 +5,7 @@
 <main>
   <h1 class="mt-5"><%= title %></h1>
 
-  <form action="/guides" method="POST">
+  <form action="/guides/<%= guide._id %>?_method=PATCH" method="POST">
     <div class="row justify-content-center mt-2">
       <div class="form-floating ps-2">
         <input 
@@ -97,7 +97,7 @@
     <div class="container">
       <div class="row">
         <div class="col text-center">
-          <button type="submit">Submit Guide</button>
+          <button type="submit">Save Guide</button>
         </div>
       </div>
     </div>

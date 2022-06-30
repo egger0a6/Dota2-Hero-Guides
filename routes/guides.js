@@ -9,6 +9,8 @@ router.get("/:id/edit", guidesCtrl.edit);
 
 router.post("/", isLoggedIn, guidesCtrl.create);
 
+router.patch("/:id", isLoggedIn, guidesCtrl.update);
+
 router.delete("/:id", isLoggedIn, guidesCtrl.delete);
 
 export {

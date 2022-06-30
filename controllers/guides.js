@@ -197,9 +197,75 @@ function edit(req, res) {
   })
 }
 
+function update(req, res) {
+  Guide.findById(req.params.id)
+  .populate("hero")
+  .then((guide) => {
+    if (typeof(req.body.include) === "string") {
+      guide.name = req.body.name;
+      guide.startingItems = [];
+      guide.coreItems = [];
+      guide.situationalItems = [];
+
+      let index = req.body.itemId.indexOf(req.body.include);
+      let itemPrio = req.body.priority[index];
+      if (itemPrio === "0") {
+        guide.startingItems.push(req.body.include);
+      }
+      else if (itemPrio === "1") {
+        guide.coreItems.push(req.body.include);
+      }
+      else {
+        guide.situationalItems.push(req.body.include);
+      }
+      guide.save()
+      .then((guide) => {
+        res.redirect(`/heroes/${guide.hero._id}`);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.redirect("/heroes");
+      })
+    }
+    else {
+      guide.name = req.body.name;
+      guide.startingItems = [];
+      guide.coreItems = [];
+      guide.situationalItems = [];
+
+      req.body.include.forEach((includedItem) => {
+        let index = req.body.itemId.indexOf(includedItem);
+        let itemPrio = req.body.priority[index];
+        if (itemPrio === "0") {
+          guide.startingItems.push(includedItem);
+        }
+        else if (itemPrio === "1") {
+          guide.coreItems.push(includedItem);
+        }
+        else {
+          guide.situationalItems.push(includedItem);
+        }
+      })
+      guide.save()
+      .then((guide) => {
+        res.redirect(`/heroes/${guide.hero._id}`);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.redirect("/heroes");
+      })
+    }
+  })
+  .catch((err) => {
+    console.log(err);
+    res.redirect("/heroes");
+  })
+}
+
 export {
   create,
   edit,
+  update,
   newGuide as new,
   deleteGuide as delete
 }
