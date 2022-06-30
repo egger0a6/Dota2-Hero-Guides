@@ -69,7 +69,6 @@ function newGuide(req, res) {
 }
 
 function create(req, res) {
-  console.log(req.body)
   Hero.findById(req.body.hero)
   .then((hero) => {
     if (typeof(req.body.include) === "string") {
@@ -103,7 +102,36 @@ function create(req, res) {
       })
     }
     else {
-      console.log("NOT STRING")
+      const newGuide = new Guide({
+        name: req.body.name,
+        hero: req.body.hero,
+        author: req.user.profile._id,
+        startingItems: [],
+        coreItems: [],
+        situationalItems: [],
+        comments: []
+      })
+      req.body.include.forEach((includedItem) => {
+        let index = req.body.itemId.indexOf(includedItem);
+        let itemPrio = req.body.priority[index];
+        if (itemPrio === "0") {
+          newGuide.startingItems.push(includedItem);
+        }
+        else if (itemPrio === "1") {
+          newGuide.coreItems.push(includedItem);
+        }
+        else {
+          newGuide.situationalItems.push(includedItem);
+        }
+      })
+      newGuide.save()
+      .then((guide) => {
+        res.redirect("/heroes");
+      })
+      .catch((err) => {
+        console.log(err);
+        res.redirect("/heroes");
+      })
     }
   })
   .catch((err) => {
