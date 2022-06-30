@@ -48,9 +48,24 @@ function show(req, res) {
     path: "guides",
     populate: {
       path: "author",
+    }
+  })
+  .populate({
+    path: "guides",
+    populate: {
       path: "startingItems",
+    }
+  })
+  .populate({
+    path: "guides",
+    populate: {
       path: "coreItems",
-      path: "situationalItems"
+    }
+  })
+  .populate({
+    path: "guides",
+    populate: {
+      path: "situationalItems",
     }
   })
   .then((hero) => {
@@ -58,6 +73,10 @@ function show(req, res) {
       hero,
       title: "Hero Details"
     })
+  })
+  .catch((err) => {
+    console.log(err);
+    res.redirect("/heroes");
   })
 }
 
