@@ -6,7 +6,9 @@ const router = Router();
 
 router.get("/new", isLoggedIn, guidesCtrl.new);
 
-router.post("/", guidesCtrl.create);
+router.post("/", isLoggedIn, guidesCtrl.create);
+
+router.delete("/:id", isLoggedIn, guidesCtrl.delete);
 
 export {
   router

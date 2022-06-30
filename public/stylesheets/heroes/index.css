@@ -1,7 +1,33 @@
 .created-heroes-container {
+  max-height: 80vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.created-heroes-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.created-heroes-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .all-heroes-container {
-  
+  max-height: 80vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.all-heroes-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.all-heroes-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

@@ -26,12 +26,12 @@
           <div class="col-lg-1 col-md-3 col-sm-4 g-4">
             <div class="card h-100 text-center">
               <img src="<%= hero.imageUrl %>" alt="dota2 hero portrait">
-              <div class="card-body">
-                <h2 class="card-title">
+              <div class="card-body d-flex flex-column">
+                <h2 class="card-title mt-auto">
                   <%= hero.name.split("_").join(" ") %> 
                 </h2>
                 <input type="radio" class="btn-check" name="hero" id="<%= hero.name %>" autocomplete="off" value="<%= hero._id %>" required>
-                <label class="btn btn-outline-primary" for="<%= hero.name %>">Select</label>
+                <label class="btn btn-outline-primary mt-auto" for="<%= hero.name %>">Select</label>
               </div>
             </div>
           </div>

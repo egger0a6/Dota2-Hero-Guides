@@ -152,7 +152,27 @@ function create(req, res) {
   })
 }
 
+function deleteGuide(req, res) {
+  Guide.findById(req.params.id)
+  .then((guide) => {
+    if (guide.author.equals(req.user.profile._id)) {
+      guide.delete()
+      .then(() => {
+        res.redirect(`/heroes/${req.body.heroId}`);
+      })
+    }
+    else {
+      throw new Error ('🚫 Not authorized 🚫');
+    }
+  })
+  .catch((err) => {
+    console.log(err);
+    res.redirect("/heroes");
+  })
+}
+
 export {
   create,
-  newGuide as new
+  newGuide as new,
+  deleteGuide as delete
 }
