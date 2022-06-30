@@ -46,4 +46,4 @@ This project is a CRUD application that allows users to create simple itemizatio
 
 ## Credits
 * [Steam WebAPI](https://wiki.teamfortress.com/wiki/WebAPI#Dota_2)
-* All the hero and item images, and Dota2 logos used in this belong to their respective owners and I do not claim any right over them.
+* All the hero and item images, and Dota2 logos used in this project belong to their respective owners and I do not claim any right over them.
