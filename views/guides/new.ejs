@@ -6,6 +6,20 @@
   <h1 class="mt-5">Create New Guide</h1>
 
   <form action="/guides" method="POST">
+    <div class="row justify-content-center mt-2">
+      <div class="form-floating ps-2">
+        <input 
+          type="text" 
+          name="name" 
+          class="form-control"
+          id="floating-input"
+          placeholder="Guide Name"
+          autocomplete="off"
+          required
+        >
+        <label for="floating-input">Guide Name</label>
+      </div>
+    </div>
     <div class="container-fluid my-4">
       <div class="row overflow-auto hero-container justify-content-center">
         <% heroes.forEach((hero) => { %>

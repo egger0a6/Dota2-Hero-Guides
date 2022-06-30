@@ -69,8 +69,47 @@ function newGuide(req, res) {
 }
 
 function create(req, res) {
-  console.log(req.body);
-  res.redirect("/heroes");
+  console.log(req.body)
+  Hero.findById(req.body.hero)
+  .then((hero) => {
+    if (typeof(req.body.include) === "string") {
+      let index = req.body.itemId.indexOf(req.body.include);
+      let itemPrio = req.body.priority[index];
+      const newGuide = new Guide({
+        name: req.body.name,
+        hero: req.body.hero,
+        author: req.user.profile._id,
+        startingItems: [],
+        coreItems: [],
+        situationalItems: [],
+        comments: []
+      })
+      if (itemPrio === "0") {
+        newGuide.startingItems.push(req.body.include);
+      }
+      else if (itemPrio === "1") {
+        newGuide.coreItems.push(req.body.include);
+      }
+      else {
+        newGuide.situationalItems.push(req.body.include);
+      }
+      newGuide.save()
+      .then((guide) => {
+        res.redirect("/heroes");
+      })
+      .catch((err) => {
+        console.log(err);
+        res.redirect("/heroes");
+      })
+    }
+    else {
+      console.log("NOT STRING")
+    }
+  })
+  .catch((err) => {
+    console.log(err);
+    res.redirect("/heroes");
+  })
 }
 
 export {

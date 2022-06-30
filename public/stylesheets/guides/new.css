@@ -13,3 +13,7 @@
 .hero-container {
   max-height: 30vh;
 }
+
+.form-floating {
+  max-width: 20vw;
+}
