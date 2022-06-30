@@ -56,11 +56,29 @@
                     type="checkbox" 
                     name="include"
                     value="<%= item._id %>"
+                    <% if (guide.startingItems.includes(item._id) || guide.coreItems.includes(item._id) || guide.situationalItems.includes(item._id)) { %>
+                      checked
+                    <% } %>
                   >
                   <select name="priority">
-                    <option value="<%= 0 %>">Starting</option>
-                    <option value="<%= 1 %>">Core</option>
-                    <option value="<%= 2 %>">Situational</option>
+                    <option 
+                      value="<%= 0 %>"
+                      <%= guide.startingItems.includes(item._id) ? "selected" : "" %>
+                    >
+                      Starting
+                    </option>
+                    <option 
+                      value="<%= 1 %>"
+                      <%= guide.coreItems.includes(item._id) ? "selected" : "" %>
+                    >
+                      Core
+                    </option>
+                    <option 
+                      value="<%= 2 %>"
+                      <%= guide.situationalItems.includes(item._id) ? "selected" : "" %>
+                    >
+                      Situational
+                    </option>
                   </select>
                   <input
                     hidden
