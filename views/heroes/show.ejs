@@ -5,7 +5,7 @@
 <main>
   <h2 class="mt-4">Hero Details</h2>
 
-  <h1 class="mt-2"><%= hero.name %></h1>
+  <h1 class="mt-2"><%= hero.name.split("_").join(" ") %></h1>
 
   <div class="container mt-3">
     <div class="row justify-content-center">
@@ -15,18 +15,85 @@
     </div>
   </div>
 
-  <div class="container guide-container">
-    <% hero.guides.forEach((guide) => { %>
-      <div class="row">
-        <div class="col">
-          <h3><%= guide.name %> by <%= guide.author.name %></h3>
-        </div>
-        <div class="col">
-          <%= guide.coreItems[0].name %>
-        </div>
+  <div class="container mt-2">
+    <div class="row">
+      <div class="col text-center">
+        <button type="submit">
+          <a class="text-decoration-none" href="/heroes">Return to Heroes</a>
+        </button>
       </div>
-    <% }) %> 
+    </div>
   </div>
+
+  <% if (hero.guides.length) { %> 
+    <div class="container overflow-auto guide-container mt-2">
+      <% hero.guides.forEach((guide) => { %>
+        <div class="row mt-5 hero-guide guide-header">
+          <div class="col-9">
+            <h4>
+              <span class="title"><%= guide.name %></span>
+                [ author: 
+              <%= guide.author.name %> ]
+            </h4>
+          </div>
+          <div class="col-3 d-flex justify-content-end align-items-end">
+            <h5>
+              Last Updated:
+              <%= guide.updatedAt.toISOString().split("T")[0] %>
+            </h5>
+          </div>
+        </div>
+        <div class="row guide-body">
+          <div class="col">
+            <div class="container">
+              <div class="row p-2 overflow-auto item-container">
+                <h4>Starting</h4>
+                <% guide.startingItems.forEach((item) => { %>
+                  <div class="col-lg-2 col-md-3 col-md-4 ">
+                    <div class="card h-100 text-center">
+                      <img src="<%= item.imageUrl %>" alt="dota2 item thumbnail">
+                    </div>
+                  </div>
+                <% }) %>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="container">
+              <div class="row p-2 overflow-auto item-container">
+                <h4>Core</h4>
+                <% guide.coreItems.forEach((item) => { %>
+                  <div class="col-lg-2 col-md-3 col-md-4 ">
+                    <div class="card h-100 text-center">
+                      <img src="<%= item.imageUrl %>" alt="dota2 item thumbnail">
+                    </div>
+                  </div>
+                <% }) %>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="container">
+              <div class="row p-2 overflow-auto item-container">
+                <h4>Situational</h4>
+                <% guide.situationalItems.forEach((item) => { %>
+                  <div class="col-lg-2 col-md-3 col-md-4 ">
+                    <div class="card h-100 text-center">
+                      <img src="<%= item.imageUrl %>" alt="dota2 item thumbnail">
+                    </div>
+                  </div>
+                <% }) %>
+              </div> 
+            </div>
+          </div>
+        </div>
+      <% }) %> 
+    </div>
+  <% }else { %>
+    <div class="container text-center mt-4">
+      <h1>No Guides Yet</h1>
+    </div>
+  <% } %> 
 
 </main>
 

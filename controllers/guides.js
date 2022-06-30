@@ -100,7 +100,7 @@ function create(req, res) {
       hero.guides.push(newGuide._id);
       hero.save()
       .then((guide) => {
-        res.redirect("/heroes");
+        res.redirect(`/heroes/${hero._id}`);
       })
       .catch((err) => {
         console.log(err);
@@ -138,7 +138,7 @@ function create(req, res) {
       hero.guides.push(newGuide._id);
       hero.save()
       .then((guide) => {
-        res.redirect("/heroes");
+        res.redirect(`/heroes/${hero._id}`);
       })
       .catch((err) => {
         console.log(err);

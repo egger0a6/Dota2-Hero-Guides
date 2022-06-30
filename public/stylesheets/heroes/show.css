@@ -1,3 +1,23 @@
-.hero-portrait {
-  max-height: 30vh;
+.title {
+  font-size: 2.5rem;
+}
+
+.guide-header {
+  background-color: #AB2E17;
+}
+
+.guide-body {
+  background-color: white;
+}
+
+.guide-footer {
+
+}
+
+.guide-container {
+  max-height: 45vh;
+}
+
+.item-container {
+  max-height: 11.42vh;
 }
