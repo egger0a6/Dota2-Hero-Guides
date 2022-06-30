@@ -44,7 +44,15 @@ function create(req, res) {
 
 function show(req, res) {
   Hero.findById(req.params.id)
-  .populate("guides")
+  .populate({
+    path: "guides",
+    populate: {
+      path: "author",
+      path: "startingItems",
+      path: "coreItems",
+      path: "situationalItems"
+    }
+  })
   .then((hero) => {
     res.render("heroes/show", {
       hero,

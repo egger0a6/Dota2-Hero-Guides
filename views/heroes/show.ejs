@@ -16,7 +16,16 @@
   </div>
 
   <div class="container guide-container">
-    
+    <% hero.guides.forEach((guide) => { %>
+      <div class="row">
+        <div class="col">
+          <h3><%= guide.name %> by <%= guide.author %></h3>
+        </div>
+        <div class="col">
+          <%= guide.coreItems %>
+        </div>
+      </div>
+    <% }) %> 
   </div>
 
 </main>
