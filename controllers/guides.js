@@ -154,26 +154,19 @@ function create(req, res) {
 
 function deleteGuide(req, res) {
   Guide.findById(req.params.id)
+  .populate("hero")
   .then((guide) => {
-    Hero.findById(req.body.heroId)
-    .then((hero) => {
-      console.log(hero)
-      if (guide.author.equals(req.user.profile._id)) {
-        hero.guides.remove({_id: req.params.id})
-        hero.save()
-        guide.delete()
-        .then(() => {
-          res.redirect(`/heroes/${req.body.heroId}`);
-        })
-      }
-      else {
-        throw new Error ('🚫 Not authorized 🚫');
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-      res.redirect("/heroes");
-    })
+    if (guide.author.equals(req.user.profile._id)) {
+      guide.hero.guides.remove({_id: req.params.id})
+      guide.hero.save()
+      guide.delete()
+      .then(() => {
+        res.redirect(`/heroes/${guide.hero._id}`);
+      })
+    }
+    else {
+      throw new Error ('🚫 Not authorized 🚫');
+    }
   })
   .catch((err) => {
     console.log(err);
