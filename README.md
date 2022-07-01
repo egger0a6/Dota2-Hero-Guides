@@ -15,6 +15,7 @@
 ## General Info
 This project is a CRUD application that allows users to create simple itemization guides for any hero in the Dota 2 roster. Dota 2 is a multiplayer online battle arena (MOBA) video game developed and published by Valve. The app allows users to login via Google OAuth to create, delete and update their guides. Data is stored in a MongoDB database and hero and item images are fetched from an API.
 * For more information about Dota2 [This Video](https://www.youtube.com/watch?v=Cp8neRiF9-k) is a good introduction.
+* Or check out the [game](https://www.dota2.com/home) perhaps.
 
 ## Getting Started
 [Visit here](https://dota2-hero-guides.herokuapp.com/)  
