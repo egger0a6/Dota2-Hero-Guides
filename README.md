@@ -45,5 +45,7 @@ This project is a CRUD application that allows users to create simple itemizatio
 * All the hero and item images, and Dota2 logos used in this project belong to their respective owners and I do not claim any right over them.
 
 ## Next Steps
-* Icebox feature 1
-* Icebox feature 2
+* Option for a user to be able to favorite a hero and have favorited heroes show on their profile page
+* Option for users to add a comments to a guide
+* Functionality to give guides a rating and sort them by rating on the Hero's page
+* ... and more
