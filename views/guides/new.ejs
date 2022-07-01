@@ -3,7 +3,7 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1 class="mt-5">Create New Guide</h1>
+  <h1 class="mt-5 page-title"><span>Create New Guide</span></h1>
 
   <form action="/guides" method="POST">
     <div class="row justify-content-center mt-2">
@@ -20,7 +20,14 @@
         <label for="floating-input">Guide Name</label>
       </div>
     </div>
-    <div class="container-fluid my-4">
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col text-center">
+          <button class=" submit-btn" type="submit">Submit Guide</button>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid my-3">
       <div class="row overflow-auto hero-container justify-content-center">
         <% heroes.forEach((hero) => { %>
           <div class="col-lg-1 col-md-3 col-sm-4 g-4">
@@ -31,7 +38,7 @@
                   <%= hero.name.split("_").join(" ") %> 
                 </h2>
                 <input type="radio" class="btn-check" name="hero" id="<%= hero.name %>" autocomplete="off" value="<%= hero._id %>" required>
-                <label class="btn btn-outline-primary mt-auto" for="<%= hero.name %>">Select</label>
+                <label class="btn hero-btn mt-auto" for="<%= hero.name %>">Select</label>
               </div>
             </div>
           </div>
@@ -41,7 +48,7 @@
 
     <div class="container py-4 px-5">
       <div class="row text-center">
-        <h2>Choose Items</h2>
+        <p class="choose-text">Choose Items</p>
       </div>
       <div class="row overflow-auto item-container justify-content-center">
         <% items.forEach((item) => { %>
@@ -49,36 +56,27 @@
             <div class="card h-100 text-center">
               <img src="<%= item.imageUrl %>" alt="dota2 item thumbnail">
               <div class="card-body">
-                <div>
-                  <input
-                    type="checkbox" 
-                    name="include"
-                    value="<%= item._id %>"
-                  >
-                  <select name="priority">
-                    <option value="<%= 0 %>">Starting</option>
-                    <option value="<%= 1 %>">Core</option>
-                    <option value="<%= 2 %>">Situational</option>
-                  </select>
-                  <input
-                    hidden
-                    type="text" 
-                    name="itemId"
-                    value="<%= item._id %>"
-                  >
-                </div>
+                <input
+                  class="checkbox"
+                  type="checkbox" 
+                  name="include"
+                  value="<%= item._id %>"
+                >
+                <select name="priority">
+                  <option value="<%= 0 %>">Starting</option>
+                  <option value="<%= 1 %>">Core</option>
+                  <option value="<%= 2 %>">Situational</option>
+                </select>
+                <input
+                  hidden
+                  type="text" 
+                  name="itemId"
+                  value="<%= item._id %>"
+                >
               </div>
             </div>
           </div>
         <% }) %>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col text-center">
-          <button type="submit">Submit Guide</button>
-        </div>
       </div>
     </div>
   </form>

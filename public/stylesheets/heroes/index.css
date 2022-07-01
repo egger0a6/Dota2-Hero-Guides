@@ -4,6 +4,37 @@
   overflow-y: scroll;
 }
 
+.notification {
+  color: white;
+}
+
+.card {
+  background-color: rgb(27,40,56);
+  color: white;
+}
+
+.hero-title {
+  font-size: 2.2rem;
+}
+
+.guide-count {
+  font-size: 1.3rem;
+}
+
+.hero-btn {
+  color: white;
+  background-color: #AC2E16;
+  box-shadow: 0px 0px 4px 3px #e23e1d;
+}
+
+.hero-btn:hover {
+  background-color: #e23e1d;
+}
+
+.collapse-btn {
+  font-size: 1.76rem;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .created-heroes-container::-webkit-scrollbar {
   display: none;
@@ -30,4 +61,43 @@
 .all-heroes-container {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+span{
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  letter-spacing: 5px;
+  font-size: 5.4rem;
+  font-weight: bold;
+  background-image: linear-gradient(
+ to right,
+ #462523 0,
+ #cb9b51 22%, 
+ #f6e27a 45%,
+ #f6f2c0 50%,
+ #f6e27a 55%,
+ #cb9b51 78%,
+ #462523 100%
+ );
+  color:transparent;
+  -webkit-background-clip:text;
+}
+
+.glow {
+  font-size: 4.8rem;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 0.7s ease-in-out infinite alternate;
+  -moz-animation: glow 0.7s ease-in-out infinite alternate;
+  animation: glow 0.7s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff, 0 0 70px #ffffff;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff, 0 0 70px #ffffff, 0 0 80px #ffffff;
+  }
 }

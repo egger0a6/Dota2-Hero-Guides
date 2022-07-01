@@ -3,7 +3,7 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1 class="mt-5"><%= title %></h1>
+  <h1 class="mt-5 page-title"><span><%= title %></span></h1>
 
   <form action="/guides/<%= guide._id %>?_method=PATCH" method="POST">
     <div class="row justify-content-center mt-2">
@@ -21,11 +21,18 @@
         <label for="floating-input">Guide Name</label>
       </div>
     </div>
-
-    <div class="container mt-2">
+    <div class="container mt-3">
       <div class="row">
         <div class="col text-center">
-          <button type="submit">
+          <button class="submit-btn" type="submit">Save Guide</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col text-center">
+          <button class="cancel-btn" type="submit">
             <a class="text-decoration-none" href="/heroes/<%= guide.hero._id %>">Cancel</a>
           </button>
         </div>
@@ -43,7 +50,7 @@
 
     <div class="container py-4 px-5">
       <div class="row text-center">
-        <h2>Choose Items</h2>
+        <p class="choose-text">Choose Items</p>
       </div>
       <div class="row overflow-auto item-container justify-content-center">
         <% items.forEach((item) => { %>
@@ -91,14 +98,6 @@
             </div>
           </div>
         <% }) %>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col text-center">
-          <button type="submit">Save Guide</button>
-        </div>
       </div>
     </div>
   </form>

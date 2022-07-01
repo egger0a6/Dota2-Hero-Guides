@@ -3,9 +3,9 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h2 class="mt-4">Hero Details</h2>
+  <h2 class="mt-4 page-title">Hero Details</h2>
 
-  <h1 class="mt-2"><%= hero.name.split("_").join(" ") %></h1>
+  <h1 class="mt-2 hero-name"><span><%= hero.name.split("_").join(" ") %></span></h1>
 
   <div class="container mt-3">
     <div class="row justify-content-center">
@@ -15,10 +15,10 @@
     </div>
   </div>
 
-  <div class="container mt-2">
+  <div class="container mt-3">
     <div class="row">
       <div class="col text-center">
-        <button type="submit">
+        <button class="btn return-btn" type="submit">
           <a class="text-decoration-none" href="/heroes">Return to Heroes</a>
         </button>
       </div>
@@ -37,10 +37,10 @@
             </h4>
           </div>
           <div class="col-3 d-flex justify-content-end align-items-end">
-            <h5>
+            <p class="date">
               Last Updated:
               <%= guide.updatedAt.toISOString().split("T")[0] %>
-            </h5>
+            </p>
           </div>
         </div>
         <div class="row guide-body">
