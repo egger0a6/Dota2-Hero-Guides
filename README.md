@@ -1,6 +1,6 @@
 # Dota2 Hero Guides
 
-![All Heroes page screenshot](/public/images/screenshots/allHeroes.png?raw=true)
+![All Heroes page screenshot](/public/images/screenshots/home_page.png?raw=true)
 
 ## Table of contents
 - [Dota2 Hero Guides](#dota2-hero-guides)
@@ -21,13 +21,12 @@ This project is a CRUD application that allows users to create simple itemizatio
 [Project Planning Trello Board](https://trello.com/b/1vfTmTgW/dota2-hero-guides)
 
 ## Usage
-* **View all heroes** *accompanying screenshot here*
-* **Login to your Google account** *accompanying screenshot here*
-* **Create a guide** *accompanying screenshot here*
-* **View hero details** *accompanying screenshot here*
-* **Edit guides** *accompanying screenshot here*
-* **View all profiles** *accompanying screenshot here*
-* **View a single profile** *accompanying screenshot here*
+* **View all heroes** ![All Heroes page screenshot](/public/images/screenshots/all_heroes.png?raw=true)
+* **Create a guide** ![Create Guide page screenshot](/public/images/screenshots/create_guide.png?raw=true)
+* **View hero details** ![View Hero page screenshot](/public/images/screenshots/hero_details.png?raw=true)
+* **Edit guides** ![Edit Guide page screenshot](/public/images/screenshots/edit_guide.png?raw=true)
+* **View all profiles** ![All Profiles page screenshot](/public/images/screenshots/all_profiles.png?raw=true)
+* **View a single profile** ![Show Profile page screenshot](/public/images/screenshots/show_profile.png?raw=true)
 
 ## Technologies
 * ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
