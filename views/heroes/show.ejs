@@ -33,7 +33,7 @@
             <h4>
               <span class="title"><%= guide.name %></span>
                 [ author: 
-              <%= guide.author.name %> ]
+              <a href="/profiles/<%= guide.author._id %>"><%= guide.author.name %></a>]
             </h4>
           </div>
           <div class="col-3 d-flex justify-content-end align-items-end">

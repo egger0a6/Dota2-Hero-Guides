@@ -15,11 +15,31 @@ function index(req, res) {
 }
 
 function show(req, res) {
-  Guide.find({})
   Profile.findById(req.params.id)
+  .populate("guides")
+  .populate("favHeroes")
+  .populate({
+    path: "guides",
+    populate: {
+      path: "startingItems",
+    }
+  })
+  .populate({
+    path: "guides",
+    populate: {
+      path: "coreItems",
+    }
+  })
+  .populate({
+    path: "guides",
+    populate: {
+      path: "situationalItems",
+    }
+  })
   .then((profile) => {
     Profile.findById(req.user.profile._id)
     .then((self) => {
+      const isSelf = self._id.equals(profile._id);
       res.render("profiles/show", {
         profile,
         isSelf,

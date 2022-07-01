@@ -1,0 +1,50 @@
+.title {
+  font-size: 2.5rem;
+  padding: 0.5rem;
+}
+
+.profile-avatar {
+  border-radius: 10px;
+}
+
+.guide-header {
+  background-color: #AB2E17;
+}
+
+.guide-body {
+  background-color: white;
+}
+
+.guide-footer {
+  background-color: rgba(171, 46, 23, 0.7);
+}
+
+.guide-container {
+  max-height: 45vh;
+}
+
+.item-container {
+  max-height: 11.42vh;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.item-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.item-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.guide-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.guide-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
