@@ -2,7 +2,7 @@
 <%- include('./partials/nav') %>
 
 <main>
-  <h1 class="mt-4">Greetings, <%= user ? user.profile.name : "traveler" %></h1>
+  <h1 class="mt-5 message"><span>Greetings, <%= user ? user.profile.name : "traveler" %></span></h1>
   <% if (user?.profile.avatar) { %>
     <div>
       <img
@@ -11,7 +11,7 @@
       />
     </div>
   <% } %>
-  <a class="mt-5 btn btn-primary" href="/heroes">Go to Heroes</a>
+  <a class="mt-5 btn redirect-btn" href="/heroes">Go to Heroes</a>
 </main>
 
 <%- include('./partials/footer') %>
