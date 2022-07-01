@@ -96,14 +96,6 @@ select {
   scrollbar-width: none;  /* Firefox */
 }
 
-body {
-  background: url("/images/backgrounds/map_bg.png") no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
 .page-title span{
   transform: translate(-50%,-50%);
   top: 50%;

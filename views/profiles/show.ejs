@@ -4,6 +4,12 @@
 
 <main>
 
+  <h1 class="page-title">
+    <span>
+      <%= isSelf ? "your" : profile.name + "'s" %> Profile
+    </span>
+  </h1>
+
   <div class="d-flex justify-content-center mt-5">
     <% if (profile.avatar) { %>
       <div>
@@ -26,10 +32,10 @@
             </h4>
           </div>
           <div class="col-3 d-flex justify-content-end align-items-end">
-            <h5>
+            <p class="date">
               Last Updated:
               <%= guide.updatedAt.toISOString().split("T")[0] %>
-            </h5>
+            </p>
           </div>
         </div>
         <div class="row guide-body">
@@ -80,13 +86,13 @@
           <div class="row guide-footer">
             <div class="col-6 text-center">
               <form action="/guides/<%= guide.id %>/edit" method="GET">
-                <button class="p-2 m-2" type="submit">Edit</button>
+                <button class="user-btn p-2 m-2" type="submit">Edit</button>
               </form>
             </div>
             <div class="col-6 text-center">
               <form action="/guides/<%= guide.id %>?_method=DELETE" method="POST">
                 <input hidden type="text" name="heroId" value="<%= guide.hero %>">
-                <button class="p-2 m-2" type="submit">Delete</button>
+                <button class="user-btn p-2 m-2" type="submit">Delete</button>
               </form>
             </div>
           </div>
