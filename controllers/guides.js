@@ -2,6 +2,7 @@ import DotaWebApi from "dota-web-api";
 import { Guide } from "../models/guide.js";
 import { Hero } from "../models/hero.js";
 import { Item } from "../models/item.js";
+import { Profile } from "../models/profile.js";
 
 const api = new DotaWebApi(process.env.STEAM_WEB_API_KEY);
 
@@ -69,82 +70,89 @@ function newGuide(req, res) {
 }
 
 function create(req, res) {
-  Hero.findById(req.body.hero)
-  .then((hero) => {
-    if (typeof(req.body.include) === "string") {
-      let index = req.body.itemId.indexOf(req.body.include);
-      let itemPrio = req.body.priority[index];
-      const newGuide = new Guide({
-        name: req.body.name,
-        hero: req.body.hero,
-        author: req.user.profile._id,
-        startingItems: [],
-        coreItems: [],
-        situationalItems: [],
-        comments: []
-      })
-      if (itemPrio === "0") {
-        newGuide.startingItems.push(req.body.include);
-      }
-      else if (itemPrio === "1") {
-        newGuide.coreItems.push(req.body.include);
-      }
-      else {
-        newGuide.situationalItems.push(req.body.include);
-      }
-      newGuide.save()
-      .catch((err) => {
-        console.log(err);
-        res.redirect("/heroes");
-      })
-      hero.guides.push(newGuide._id);
-      hero.save()
-      .then((guide) => {
-        res.redirect(`/heroes/${hero._id}`);
-      })
-      .catch((err) => {
-        console.log(err);
-        res.redirect("/heroes");
-      })
-    }
-    else {
-      const newGuide = new Guide({
-        name: req.body.name,
-        hero: req.body.hero,
-        author: req.user.profile._id,
-        startingItems: [],
-        coreItems: [],
-        situationalItems: [],
-        comments: []
-      })
-      req.body.include.forEach((includedItem) => {
-        let index = req.body.itemId.indexOf(includedItem);
+  Profile.findById(req.user.profile._id)
+  .then((profile) => {
+    Hero.findById(req.body.hero)
+    .then((hero) => {
+      if (typeof(req.body.include) === "string") {
+        let index = req.body.itemId.indexOf(req.body.include);
         let itemPrio = req.body.priority[index];
+        const newGuide = new Guide({
+          name: req.body.name,
+          hero: req.body.hero,
+          author: req.user.profile._id,
+          startingItems: [],
+          coreItems: [],
+          situationalItems: [],
+          comments: []
+        })
         if (itemPrio === "0") {
-          newGuide.startingItems.push(includedItem);
+          newGuide.startingItems.push(req.body.include);
         }
         else if (itemPrio === "1") {
-          newGuide.coreItems.push(includedItem);
+          newGuide.coreItems.push(req.body.include);
         }
         else {
-          newGuide.situationalItems.push(includedItem);
+          newGuide.situationalItems.push(req.body.include);
         }
-      })
-      newGuide.save()
-      .catch((err) => {
-        console.log(err);
-        res.redirect("/heroes");
-      })
-      hero.guides.push(newGuide._id);
-      hero.save()
-      .then((guide) => {
-        res.redirect(`/heroes/${hero._id}`);
-      })
-      .catch((err) => {
-        console.log(err);
-        res.redirect("/heroes");
-      })
-    }
+        newGuide.save()
+        .catch((err) => {
+          console.log(err);
+          res.redirect("/heroes");
+        })
+        hero.guides.push(newGuide._id);
+        hero.save()
+        profile.guides.push(newGuide._id);
+        profile.save()
+        .then((guide) => {
+          res.redirect(`/heroes/${hero._id}`);
+        })
+        .catch((err) => {
+          console.log(err);
+          res.redirect("/heroes");
+        })
+      }
+      else {
+        const newGuide = new Guide({
+          name: req.body.name,
+          hero: req.body.hero,
+          author: req.user.profile._id,
+          startingItems: [],
+          coreItems: [],
+          situationalItems: [],
+          comments: []
+        })
+        req.body.include.forEach((includedItem) => {
+          let index = req.body.itemId.indexOf(includedItem);
+          let itemPrio = req.body.priority[index];
+          if (itemPrio === "0") {
+            newGuide.startingItems.push(includedItem);
+          }
+          else if (itemPrio === "1") {
+            newGuide.coreItems.push(includedItem);
+          }
+          else {
+            newGuide.situationalItems.push(includedItem);
+          }
+        })
+        newGuide.save()
+        .catch((err) => {
+          console.log(err);
+          res.redirect("/heroes");
+        })
+        hero.guides.push(newGuide._id);
+        hero.save()
+        profile.guides.push(newGuide._id);
+        profile.save()
+        .then((guide) => {
+          res.redirect(`/heroes/${hero._id}`);
+        })
+        .catch((err) => {
+          console.log(err);
+          res.redirect("/heroes");
+        })
+      }
+    })
   })
   .catch((err) => {
     console.log(err);
@@ -155,10 +163,13 @@ function create(req, res) {
 function deleteGuide(req, res) {
   Guide.findById(req.params.id)
   .populate("hero")
+  .populate("author")
   .then((guide) => {
     if (guide.author.equals(req.user.profile._id)) {
       guide.hero.guides.remove({_id: req.params.id})
       guide.hero.save()
+      guide.author.guides.remove({_id: req.params.id})
+      guide.author.save()
       guide.delete()
       .then(() => {
         res.redirect(`/heroes/${guide.hero._id}`);

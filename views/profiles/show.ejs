@@ -1,0 +1,40 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/profiles/show.css">
+<%- include('../partials/nav') %>
+
+<main>
+  <h1 class="my-4">Users</h1>
+
+  <div class="row">
+    <% profiles.forEach((profile) => { %>
+      <div class="col">
+        <a href="/profiles/<%= profile._id %>" class="text-decoration-none">
+          <div class="card text-center">
+            <div class="row g-0 align-items-center">
+              <div class="col-md-4">
+                <% if (profile.avatar) { %>
+                  <img
+                    src="<%= profile.avatar %>"
+                    alt="<%= profile.name %>'s avatar"
+                  />
+                <% }else {%>
+                  <img
+                    src="https://picsum.photos/96"
+                    alt="A placeholder avatar"
+                  />
+                <% } %>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h2 class="card-title"><%= profile.name %></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    <% }) %> 
+  </div>
+</main>
+
+<%- include('../partials/footer') %>
