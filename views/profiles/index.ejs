@@ -5,31 +5,35 @@
 <main>
   <h1 class="my-4">Users</h1>
 
-  <div class="container">
-    <div class="row profiles-container justify-content-center">
-      <% profiles.forEach((profile) => { %>
+  <div class="row">
+    <% profiles.forEach((profile) => { %>
+      <div class="col">
         <a href="/profiles/<%= profile._id %>" class="text-decoration-none">
-          <div class="col-lg-1 col-md-3 col-sm-4 g-4">
-            <div class="card h-100 text-center">
-              <% if (profile.avatar) { %>
-                <img
-                  src="<%= profile.avatar %>"
-                  alt="<%= profile.name %>'s avatar"
-                />
-              <% }else {%>
-                <img
-                  src="https://picsum.photos/96"
-                  alt="A placeholder avatar"
-                />
-              <% } %>
-              <div class="card-body d-flex flex-column">
-                <h1 class="card-title mt-auto"><%= profile.name %></h1>
+          <div class="card text-center">
+            <div class="row g-0 align-items-center">
+              <div class="col-md-4">
+                <% if (profile.avatar) { %>
+                  <img
+                    src="<%= profile.avatar %>"
+                    alt="<%= profile.name %>'s avatar"
+                  />
+                <% }else {%>
+                  <img
+                    src="https://picsum.photos/96"
+                    alt="A placeholder avatar"
+                  />
+                <% } %>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h2 class="card-title"><%= profile.name %></h2>
+                </div>
               </div>
             </div>
           </div>
         </a>
-      <% }) %> 
-    </div>
+      </div>
+    <% }) %> 
   </div>
 </main>
 
