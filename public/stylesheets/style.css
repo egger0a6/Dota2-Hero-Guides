@@ -1,4 +1,9 @@
-@import url(//db.onlinewebfonts.com/c/6154a6c90acab96e63ecc820d9ca5626?family=Trajan);
+@font-face{
+  font-family: 'Trajan';
+  src: url("/fonts/Trajan_Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 html {
   box-sizing: border-box;
