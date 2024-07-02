@@ -70,6 +70,8 @@ function newGuide(req, res) {
 }
 
 function create(req, res) {
+  console.log("HERE")
+  console.log(req.body)
   Profile.findById(req.user.profile._id)
   .then((profile) => {
     Hero.findById(req.body.hero)
@@ -122,19 +124,21 @@ function create(req, res) {
           situationalItems: [],
           comments: []
         })
-        req.body.include.forEach((includedItem) => {
-          let index = req.body.itemId.indexOf(includedItem);
-          let itemPrio = req.body.priority[index];
-          if (itemPrio === "0") {
-            newGuide.startingItems.push(includedItem);
-          }
-          else if (itemPrio === "1") {
-            newGuide.coreItems.push(includedItem);
-          }
-          else {
-            newGuide.situationalItems.push(includedItem);
-          }
-        })
+        if (req.body.include) {
+          req.body.include.forEach((includedItem) => {
+            let index = req.body.itemId.indexOf(includedItem);
+            let itemPrio = req.body.priority[index];
+            if (itemPrio === "0") {
+              newGuide.startingItems.push(includedItem);
+            }
+            else if (itemPrio === "1") {
+              newGuide.coreItems.push(includedItem);
+            }
+            else {
+              newGuide.situationalItems.push(includedItem);
+            }
+          })
+        }
         newGuide.save()
         .catch((err) => {
           console.log(err);
