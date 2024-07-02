@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
-const heroSchema = new mongoose.Schema({
+const heroSchema = new Schema({
   name: String,
   imageUrl: String,
   guides: [{type: Schema.Types.ObjectId, ref: "Guide"}],

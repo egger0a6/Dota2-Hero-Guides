@@ -18,8 +18,8 @@ This project is a CRUD application that allows users to create simple itemizatio
 * Or check out the [game](https://www.dota2.com/home) perhaps.
 
 ## Getting Started
-[Visit here](https://dota2-hero-guides.herokuapp.com/)  
-[Project Planning Trello Board](https://trello.com/b/1vfTmTgW/dota2-hero-guides)
+- [Visit here](https://dota2-hero-guides.herokuapp.com/)  
+- [Project Planning Trello Board](https://trello.com/b/1vfTmTgW/dota2-hero-guides)
 
 ## Usage
 * **View all heroes** ![All Heroes page screenshot](/public/images/screenshots/all_heroes.png?raw=true)
@@ -35,10 +35,10 @@ This project is a CRUD application that allows users to create simple itemizatio
 * ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 * ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
 * ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+* ![Mongoose](https://img.shields.io/badge/Mongoose-880000.svg?style=for-the-badge&logo=Mongoose&logoColor=white)
 * ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 * ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-* ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
-* Mongoose: an Object Data Modeling (ODM) library for MongoDB and Node.js
+* ![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)
 
 ## Credits
 * [Steam WebAPI](https://wiki.teamfortress.com/wiki/WebAPI#Dota_2)
