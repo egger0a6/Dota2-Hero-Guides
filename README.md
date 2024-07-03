@@ -18,7 +18,7 @@ This project is a CRUD application that allows users to create simple itemizatio
 * Or check out the [game](https://www.dota2.com/home) perhaps.
 
 ## Getting Started
-- [Visit here](https://dota2-hero-guides.herokuapp.com/)  
+- [Visit here](https://dota2-hero-guides.onrender.com/)  
 - [Project Planning Trello Board](https://trello.com/b/1vfTmTgW/dota2-hero-guides)
 
 ## Usage
